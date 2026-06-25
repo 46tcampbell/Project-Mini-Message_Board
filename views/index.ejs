@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title><%=title%></title>
+  </head>
+  <body>
+    <% messages.forEach((message) => { %>
+    <ul>
+      <li>User: <%=message.user%></li>
+      <li>Text: <%=message.text%></li>
+      <li>Date: <%=message.date%></li>
+    </ul>
+    <% }) %>
+  </body>
+</html>
+
+<!-- const messages = [ { text: 'Hi there!', user: 'Amando', added: new Date(), }, {
+text: 'Hello World!', user: 'Charles', added: new Date(), }, ]; -->
