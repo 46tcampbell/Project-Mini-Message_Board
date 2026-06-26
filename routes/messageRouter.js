@@ -21,7 +21,7 @@ messageRouter.post('/', (req, res) => {
     id: crypto.randomUUID(),
   });
   console.log(messages);
-  res.redirect('/');
+  res.redirect('..');
 });
 
 messageRouter.get('/:messageId', (req, res) => {
