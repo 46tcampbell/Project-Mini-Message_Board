@@ -1,0 +1,9 @@
+div.message-div {
+  display: flex;
+  gap: 2rem;
+}
+
+a {
+  display: flex;
+  align-items: center;
+}

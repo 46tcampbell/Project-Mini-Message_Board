@@ -1,15 +1,21 @@
 <html>
   <head>
+    <link rel="stylesheet" href="/styles.css" />
     <title><%=title%></title>
   </head>
   <body>
+    <h1>Messages:</h1>
     <% messages.forEach((message) => { %>
-    <ul>
-      <li>User: <%=message.user%></li>
-      <li>Text: <%=message.text%></li>
-      <li>Date: <%=message.date%></li>
-    </ul>
+    <div class="message-div">
+      <ul>
+        <li>User: <%=message.user%></li>
+        <li>Message Text: <%=message.text%></li>
+        <li>Date Added: <%=message.added%></li>
+      </ul>
+      <a href="./new/<%= message.id%>">Open</a>
+    </div>
     <% }) %>
+    <a href="./new">Message Form</a>
   </body>
 </html>
 

@@ -1,16 +1,28 @@
 import Router from 'express';
 
 export const indexRouter = Router();
-const messages = [
+export const messages = [
   {
     text: 'Hi there!',
     user: 'Amando',
-    added: new Date(),
+    added: new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+    id: crypto.randomUUID(),
   },
   {
     text: 'Hello World!',
     user: 'Charles',
-    added: new Date(),
+    added: new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+    id: crypto.randomUUID(),
   },
 ];
 
