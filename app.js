@@ -12,6 +12,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/new', messageRouter);
+// app.get('/{*splat}', (req, res) => res.send('Error'));
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.statusCode || 500).send(err.message);
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {

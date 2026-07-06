@@ -1,5 +1,6 @@
 import Router from 'express';
 import { messages } from './indexRouter.js';
+import CustomNotFoundError from '../errors/CustomNotFoundError.js';
 
 export const messageRouter = Router();
 
@@ -29,5 +30,8 @@ messageRouter.get('/:messageId', (req, res) => {
   const message = messages.find(
     (element) => element.id === req.params.messageId
   );
+  if (!message) {
+    throw new CustomNotFoundError('Message not found');
+  }
   res.render('message', { title: 'Single Message', message });
 });
