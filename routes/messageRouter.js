@@ -1,37 +1,10 @@
 import Router from 'express';
-import { messages } from './indexRouter.js';
-import CustomNotFoundError from '../errors/CustomNotFoundError.js';
+import messageController from '../controllers/messageController.js';
 
 export const messageRouter = Router();
 
-messageRouter.get('/', (req, res) => {
-  res.render('form');
-});
+messageRouter.get('/', messageController.getMessageForm);
 
-messageRouter.post('/', (req, res) => {
-  console.log(req.body);
-  messages.push({
-    user: req.body.user,
-    text: req.body.text,
-    added: new Date().toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-    id: crypto.randomUUID(),
-  });
-  console.log(messages);
-  res.redirect('..');
-});
+messageRouter.post('/', messageController.insertMessage);
 
-messageRouter.get('/:messageId', (req, res) => {
-  //   res.send(req.params);
-  const message = messages.find(
-    (element) => element.id === req.params.messageId
-  );
-  if (!message) {
-    throw new CustomNotFoundError('Message not found');
-  }
-  res.render('message', { title: 'Single Message', message });
-});
+messageRouter.get('/:messageId', messageController.getMessageByID);

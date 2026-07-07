@@ -5,8 +5,18 @@ async function getAllMessages() {
   return rows;
 }
 
-async function insertMessage(message) {
-  await pool.query('INSERT INTO messages (message) VALUES ($1)', [message]);
+async function insertMessage(text, user) {
+  await pool.query('INSERT INTO messages (text, "user") VALUES ($1, $2)', [
+    text,
+    user,
+  ]);
 }
 
-export default { getAllMessages, insertMessage };
+async function getMessage(id) {
+  const { rows } = await pool.query('SELECT * FROM messages WHERE id = $1', [
+    id,
+  ]);
+  return rows;
+}
+
+export default { getAllMessages, insertMessage, getMessage };

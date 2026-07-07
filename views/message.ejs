@@ -5,9 +5,12 @@
   <body>
     <h1>Message:</h1>
     <ul>
-      <li>User: <%=message.user%></li>
-      <li>Message Text: <%=message.text%></li>
-      <li>Date Added: <%=message.added%></li>
+      <li>User: <%=message[0].user%></li>
+      <li>Message Text: <%=message[0].text%></li>
+      <li>
+        Date Added: <%=message[0].added.toLocaleDateString('en-US', { weekday:
+        'long', year: 'numeric', month: 'long', day: 'numeric', })%>
+      </li>
     </ul>
     <a href="/new">Message Form</a>
     <a href="/">Homepage</a>

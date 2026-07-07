@@ -13,7 +13,9 @@ CREATE TABLE IF NOT EXISTS messages (
   ('Hey, Hey', 'Harry Caray'),
   ('Hey, Hey, Hey', 'Fat Albert'),
   ('Hey Jude', 'The Beatles'),
-  ('Hey diddle diddle', 'The Cat and the Fiddle')
+  ('Hey diddle diddle', 'The Cat and the Fiddle'),
+  ('Hey Arnold!', 'Helga G. Pataki'),
+  ('Hey Ya!', 'OutKast')
 `;
 
 async function main() {
