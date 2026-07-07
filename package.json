@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:seed": " node --env-file-if-exists=.env ./db/populatedb.js ",
-    "start": "node --watch --env-file-if-exists=.env ./app.js"
+    "dev.db:seed": " node --env-file-if-exists=.env ./db/populatedb.js ",
+    "dev.start": "node --watch --env-file-if-exists=.env ./app.js",
+    "prod.db:seed": " node --env-file-if-exists=.env.prod ./db/populatedb.js ",
+    "prod.start": "node --watch --env-file-if-exists=.env.prod ./app.js"
   },
   "keywords": [],
   "author": "Thomas Campbell <tom.campbell.101@gmail.com>",
