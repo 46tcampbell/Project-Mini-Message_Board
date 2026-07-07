@@ -1,4 +1,5 @@
 import Router from 'express';
+import indexController from '../controllers/indexController.js';
 
 export const indexRouter = Router();
 export const messages = [
@@ -26,6 +27,4 @@ export const messages = [
   },
 ];
 
-indexRouter.get('/', (req, res) => {
-  res.render('index', { title: 'Mini Messageboard', messages });
-});
+indexRouter.get('/', indexController.getMessages);
