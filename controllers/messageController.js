@@ -10,13 +10,13 @@ const validateUser = [
     .trim()
     .notEmpty()
     .withMessage(`Author Name ${emptyErr}`)
-    .isAlphanumeric()
+    .isAlphanumeric('en-US', { ignore: ' ,' })
     .withMessage(`Author Name ${alphanumericErr}`),
   body('text')
     .trim()
     .notEmpty()
     .withMessage(`Message Text ${emptyErr}`)
-    .isAlphanumeric()
+    .isAlphanumeric('en-US', { ignore: ' ,' })
     .withMessage(`Message Text ${alphanumericErr}`),
 ];
 
